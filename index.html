@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barrio La Macarena - Bogotá</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="Logo de la empresa" class="logo">
+    </div>
+    <h1 class="barrio-name">La Macarena</h1>
+  </header>
+
+  <!-- Navegación -->
+  <nav>
+    <ul class="menu">
+      <li><a href="#equipamientos">Equipamientos</a></li>
+      <li><a href="#problematicas">Problemáticas</a></li>
+      <li><a href="#acerca-de">Acerca de</a></li>
+    </ul>
+  </nav>
+
+  <!-- Sección principal -->
+  <section class="main-section">
+    <img src="macarena.jpg" alt="Imagen del barrio La Macarena" class="barrio-image">
+    <h2 class="barrio-title">Bienvenidos a La Macarena</h2>
+    <button id="more-info-button">Más información</button>
+  </section>
+
+  <!-- Contenido dinámico -->
+  <div id="content" class="hidden">
+    <p>Esta es una página informativa sobre el barrio La Macarena en Bogotá, Colombia.</p>
+    <p>Aquí podrás encontrar detalles sobre los equipamientos, problemáticas y más.</p>
+  </div>
+
+  <!-- Mapa interactivo (opcional) -->
+  <div id="map" style="height: 400px;"></div>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2023 Empresa XYZ. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
