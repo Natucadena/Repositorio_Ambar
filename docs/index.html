@@ -7,46 +7,35 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Encabezado -->
-  <header>
-    <div class="logo-container">
-      <img src="logo.png" alt="Logo de la empresa" class="logo">
+  <!-- Encabezado lateral superior izquierdo -->
+  <header class="header-left">
+    <div class="logo-nombre">
+      <img src="logo.jpg" alt="Logo de la empresa" class="logo">
+      <span class="empresa-nombre">Ambar</span>
     </div>
-    <h1 class="barrio-name">La Macarena</h1>
+    <!-- Menú desplegable -->
+    <nav>
+      <ul class="menu-desplegable">
+        <li><a href="#equipamientos">Equipamientos</a></li>
+        <li><a href="#problematicas">Problemáticas</a></li>
+        <li><a href="acerca.html">Acerca de</a></li> <!-- Enlace corregido -->
+      </ul>
+    </nav>
   </header>
 
-  <!-- Navegación -->
-  <nav>
-    <ul class="menu">
-      <li><a href="#equipamientos">Equipamientos</a></li>
-      <li><a href="#problematicas">Problemáticas</a></li>
-      <li><a href="#acerca-de">Acerca de</a></li>
-    </ul>
-  </nav>
-
-  <!-- Sección principal -->
-  <section class="main-section">
-    <img src="macarena.jpg" alt="Imagen del barrio La Macarena" class="barrio-image">
-    <h2 class="barrio-title">Bienvenidos a La Macarena</h2>
-    <button id="more-info-button">Más información</button>
+  <!-- Sección principal con imagen y título centrado -->
+  <section class="imagen-titulo">
+    <div class="imagen-con-titulo">
+      <img src="macarena.jpg" alt="Imagen del barrio La Macarena" class="barrio-image">
+      <h1 class="titulo-central">La Macarena</h1>
+    </div>
   </section>
-
-  <!-- Contenido dinámico -->
-  <div id="content" class="hidden">
-    <p>Esta es una página informativa sobre el barrio La Macarena en Bogotá, Colombia.</p>
-    <p>Aquí podrás encontrar detalles sobre los equipamientos, problemáticas y más.</p>
-  </div>
-
-  <!-- Mapa interactivo (opcional) -->
-  <div id="map" style="height: 400px;"></div>
 
   <!-- Pie de página -->
   <footer>
-    <p>&copy; 2023 Empresa XYZ. Todos los derechos reservados.</p>
+    <p>&copy; 2025 Empresa Ambar. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
