@@ -31,22 +31,15 @@ h1 {
     letter-spacing: 2px;
     text-shadow: 1px 2px 8px rgba(0,0,0,0.10);
 }
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Mapa de Parques - La Macarena</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="parques.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-</head>
-<body>
-    <header>
-        <h1>Parques de la Macarena</h1>
-    </header>
-    <div id="map"></div>
+.logo-esquina {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+}
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="parques.js"></script>
-</body>
-</html>
+.logo {
+  width: 10em; /* Igual al tamaño del nombre de la empresa */
+  height: 10em;
+  margin-left: 8px;
