@@ -3,8 +3,14 @@ body {
     padding: 0;
 }
 #map {
-    height: 100vh;
-    width: 100%;
+    height: 80vh;
+    width: 90vw;
+    margin: 30px auto 0 auto;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);
+    border: 4px solid #FFEFD4;
+    display: block;
+    max-width: 1200px;
 }
 .parque-label {
     background: rgba(56, 142, 60, 0.85);
@@ -22,6 +28,7 @@ header {
     padding: 36px 0 24px 0;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    position: relative;
 }
 
 h1 {
@@ -31,22 +38,11 @@ h1 {
     letter-spacing: 2px;
     text-shadow: 1px 2px 8px rgba(0,0,0,0.10);
 }
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Mapa de Parques - La Macarena</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="parques.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-</head>
-<body>
-    <header>
-        <h1>Parques de la Macarena</h1>
-    </header>
-    <div id="map"></div>
-
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="parques.js"></script>
-</body>
-</html>
+.logo {
+    position: absolute;
+    top: 5px;         /* Más arriba */
+    left: 30px;
+    width: 130px;     /* Un poco más grande */
+    height: auto;
+    z-index: 100;     /* Más alto para que esté sobre el mapa */
+}
