@@ -6,12 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="parques.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .mapa-instruccion {
+            margin: 10px auto;
+            font-size: 1.1em;
+            color: #333;
+            background: #f8f8f8;
+            border: 2px solid #4CAF50;
+            border-radius: 8px;
+            padding: 12px 20px;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            width: fit-content;
+        }
+    </style>
 </head>
 <body>
     <header>
         <img src="logo.png" alt="Logo" class="logo">
         <h1>Parques de la Macarena</h1>
     </header>
+    <div class="mapa-instruccion">
+        Haz clic sobre el parque en el mapa para ver su información
+    </div>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
