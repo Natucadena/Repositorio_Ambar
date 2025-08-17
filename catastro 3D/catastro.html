@@ -116,16 +116,30 @@
     }
 
     // 4) Cámara inicial manual (debe ir después del flyTo anterior)
+    // Calcular el centro del barrio a partir del primer polígono y usar el formato flyTo solicitado
     setTimeout(() => {
-      viewer.camera.setView({
-        destination: Cesium.Cartesian3.fromDegrees(-74.0735, 4.6165, 20), // Altura muy baja y cercana
+      const poly = barrio.entities.values.find(e => e.polygon)?.polygon;
+      let lon = -74.0735, lat = 4.6165;
+      if (poly) {
+        const positions = poly.hierarchy.getValue().positions;
+        let sumLon = 0, sumLat = 0;
+        positions.forEach(c => {
+          const carto = Cesium.Ellipsoid.WGS84.cartesianToCartographic(c);
+          sumLon += Cesium.Math.toDegrees(carto.longitude);
+          sumLat += Cesium.Math.toDegrees(carto.latitude);
+        });
+        lon = sumLon / positions.length;
+        lat = sumLat / positions.length;
+      }
+      // Usar el formato flyTo solicitado
+      viewer.camera.flyTo({
+        destination: Cesium.Cartesian3.fromDegrees(lon, lat, 400), // Puedes ajustar la altura para el zoom deseado
         orientation: {
-          heading: Cesium.Math.toRadians(20),
-          pitch: Cesium.Math.toRadians(-60),
-          roll: 0
+          heading: Cesium.Math.toRadians(0.0),
+          pitch: Cesium.Math.toRadians(-45.0),
         }
       });
-    }, 1000); // Espera 1 segundo para asegurar el vuelo anterior
+    }, 1000);
 
     // Si quieres animación automática, puedes usar esto:
     /*
