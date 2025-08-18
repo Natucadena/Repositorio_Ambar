@@ -198,7 +198,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     { lon: -74.0638, lat: 4.6136, nombre: "Universidad Distrital (Sede Macarena)", altura: 2760 },
     { lon: -74.0685, lat: 4.6132, nombre: "Plaza de toros", altura: 2670 },
     { lon: -74.0701, lat: 4.6108, nombre: "Torre colpatria", altura: 2865 },
-    { lon: -74.0664, lat: 4.6138, nombre: "Restaurante la juguetería", altura: 2675 }
+    { lon: -74.0664, lat: 4.6138, nombre: "Restaurante La Juguetería", altura: 2675 },
+    { lon: -74.0660, lat: 4.6147, nombre: "Restaurante El Patio", altura: 2677 },
+    { lon: -74.0667, lat: 4.6120, nombre: "Restaurante La Chocolatería", altura: 2677 }
   ];
 
   marcadores.forEach(m => {
@@ -212,10 +214,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       },
       label: {
         text: m.nombre,
-        font: '18px Times New Roman, serif',
+        font: '19px Times New Roman, serif',
         fillColor: Cesium.Color.BLACK,
         outlineColor: Cesium.Color.WHITE,
-        outlineWidth: 2,
+        outlineWidth: 3,
         style: Cesium.LabelStyle.FILL_AND_OUTLINE,
         verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
         pixelOffset: new Cesium.Cartesian2(0, 20)
