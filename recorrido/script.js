@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       { lon: -74.0733, lat: 4.6121, height: 2900, heading: 70,  pitch: -25, duration: 4 },
       { lon: -74.0710, lat: 4.6139, height: 2900,  heading: 100,  pitch: -20, duration: 4 },
       { lon: -74.0658, lat: 4.6202, height: 2900,  heading: 190, pitch: -10, duration: 4 },
-      { lon: -74.0606, lat: 4.6138, height: 2900, heading: 270, pitch: -25, duration: 4 },
+      { lon: -74.0606, lat: 4.6138, height: 2900, heading: 270, pitch: -20, duration: 4 },
 
     ];
 
