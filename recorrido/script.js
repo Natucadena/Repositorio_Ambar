@@ -196,7 +196,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const marcadores = [
     { lon: -74.0673, lat: 4.6133, nombre: "Torres del Parque", altura: 2725 },
     { lon: -74.0638, lat: 4.6136, nombre: "Universidad Distrital (Sede Macarena)", altura: 2760 },
-    { lon: -74.0685, lat: 4.6132, nombre: "Plaza de toros", altura: 2670 }
+    { lon: -74.0685, lat: 4.6132, nombre: "Plaza de toros", altura: 2670 },
+    { lon: -74.0701, lat: 4.6108, nombre: "Torre colpatria", altura: 2865 }
   ];
 
   marcadores.forEach(m => {
