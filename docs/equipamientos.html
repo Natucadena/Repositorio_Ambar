@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Equipamientos - Ambar</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="equipamientos.css" />
+</head>
+<body>
+  <!-- Encabezado con logo y título centrado -->
+  <div id="header">
+    <div id="header-wrapper">
+      <img src="logo.png" alt="Logo" id="logo">
+      <div id="title-container">
+        <h1>Ambar</h1>
+        <p>Equipamientos del barrio La Macarena</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mapa -->
+  <div id="map"></div>
+
+  <!-- Información -->
+  <div id="info">
+    <p>La Macarena cuenta con una red diversa de equipamientos urbanos que facilitan la vida diaria de sus habitantes. 
+    Desde el <strong>Museo del Oro</strong> y el <strong>Parque de la Independencia</strong>, hasta centros de salud, 
+    colegios y estaciones de transporte público. Este barrio combina historia, cultura y accesibilidad, 
+    siendo un punto estratégico en el centro de Bogotá.</p>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+
+  <!-- Script personalizado -->
+  <script src="equipamientos.js"></script>
+</body>
+</html>
