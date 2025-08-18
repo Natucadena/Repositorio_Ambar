@@ -197,7 +197,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     { lon: -74.0673, lat: 4.6133, nombre: "Torres del Parque", altura: 2725 },
     { lon: -74.0638, lat: 4.6136, nombre: "Universidad Distrital (Sede Macarena)", altura: 2760 },
     { lon: -74.0685, lat: 4.6132, nombre: "Plaza de toros", altura: 2670 },
-    { lon: -74.0701, lat: 4.6108, nombre: "Torre colpatria", altura: 2865 }
+    { lon: -74.0701, lat: 4.6108, nombre: "Torre colpatria", altura: 2865 },
+    { lon: -74.0664, lat: 4.6138, nombre: "Restaurante la juguetería", altura: 2675 }
   ];
 
   marcadores.forEach(m => {
@@ -211,7 +212,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       },
       label: {
         text: m.nombre,
-        font: '17px Times New Roman, serif',
+        font: '18px Times New Roman, serif',
         fillColor: Cesium.Color.BLACK,
         outlineColor: Cesium.Color.WHITE,
         outlineWidth: 2,
