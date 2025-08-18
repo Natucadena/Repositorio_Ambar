@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     { lon: -74.0701, lat: 4.6108, nombre: "Torre colpatria", altura: 2865 },
     { lon: -74.0664, lat: 4.6138, nombre: "Restaurante La Juguetería", altura: 2675 },
     { lon: -74.0660, lat: 4.6147, nombre: "Restaurante El Patio", altura: 2677 },
-    { lon: -74.0667, lat: 4.6120, nombre: "Restaurante La Chocolatería", altura: 2677 }
+    { lon: -74.0667, lat: 4.6120, nombre: "Restaurante La Chocolatería", altura: 2680 }
   ];
 
   marcadores.forEach(m => {
@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       },
       label: {
         text: m.nombre,
-        font: '19px Times New Roman, serif',
+        font: '20px Times New Roman, serif',
         fillColor: Cesium.Color.BLACK,
         outlineColor: Cesium.Color.WHITE,
         outlineWidth: 3,
