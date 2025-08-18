@@ -1,34 +1,37 @@
-// Inicializar el mapa centrado en Bogotá (ajusta según la ubicación real de La Macarena)
-const map = L.map('map').setView([4.6388, -74.0874], 16); // Coordenadas aproximadas de La Macarena, Bogotá
+// Inicializar el mapa (coordenadas corregidas para La Macarena)
+const map = L.map('map').setView([4.6097, -74.0817], 15);
 
-// Añadir capa de mapa base (OpenStreetMap)
+// Añadir capa base
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-// Cargar el archivo GeoJSON de la malla vial
+// Cargar GeoJSON
 fetch('Vial_Macarena.geojson')
   .then(response => {
-    if (!response.ok) throw new Error('No se pudo cargar el archivo GeoJSON');
+    if (!response.ok) {
+      throw new Error(`Error HTTP: ${response.status} - ${response.statusText}`);
+    }
     return response.json();
   })
   .then(data => {
-    // Estilizar y añadir las vías al mapa
-    L.geoJSON(data, {
+    const geojsonLayer = L.geoJSON(data, {
       style: {
-        color: "#8B4513",     // Marrón tierra
+        color: "#8B4513",
         weight: 4,
         opacity: 0.8
       },
       onEachFeature: function (feature, layer) {
-        // Si el GeoJSON tiene propiedades como nombre de calle
         if (feature.properties && feature.properties.nombre) {
           layer.bindPopup("<strong>Calle:</strong> " + feature.properties.nombre);
         }
       }
     }).addTo(map);
+
+    // Ajustar la vista al área de las vías
+    map.fitBounds(geojsonLayer.getBounds());
   })
   .catch(error => {
     console.error('Error al cargar el GeoJSON:', error);
-    alert('Hubo un problema al cargar los datos de la malla vial.');
+    alert('No se pudieron cargar los datos de las vías: ' + error.message);
   });
