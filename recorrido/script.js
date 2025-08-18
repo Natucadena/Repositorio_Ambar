@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       { lon: -74.0661, lat: 4.6090, height: 2900, heading: 0,   pitch: -30, duration: 4 },
       { lon: -74.0733, lat: 4.6121, height: 2900, heading: 70,  pitch: -25, duration: 4 },
       { lon: -74.0710, lat: 4.6139, height: 2900,  heading: 100,  pitch: -20, duration: 4 },
-      { lon: -74.0658, lat: 4.6202, height: 2900,  heading: 170, pitch: -15, duration: 4 },
+      { lon: -74.0658, lat: 4.6202, height: 2900,  heading: 190, pitch: -10, duration: 4 },
       { lon: -74.0606, lat: 4.6138, height: 2900, heading: 270, pitch: -25, duration: 4 },
 
     ];
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         outlineWidth: 2,
         style: Cesium.LabelStyle.FILL_AND_OUTLINE,
         verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-        pixelOffset: new Cesium.Cartesian2(0, 25)
+        pixelOffset: new Cesium.Cartesian2(0, 20)
       }
     });
   });
