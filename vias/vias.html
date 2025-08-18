@@ -14,12 +14,27 @@
   <link rel="stylesheet" href="vias.css" />
 </head>
 <body>
-  <div id="header">
-    <h1> Ambar</h1>
-    <p>Malla vial del barrio La Macarena</p>
+  <!-- Encabezado con logo y título -->
+<div id="header">
+  <div id="header-wrapper">
+    <!-- Logo a la izquierda -->
+    <img src="logo.png" alt="Logo" id="logo">
+
+    <!-- Título y subtítulo centrados -->
+    <div id="title-container">
+      <h1>Ambar</h1>
+      <p>Malla vial del barrio La Macarena</p>
+    </div>
   </div>
+</div>
 
   <div id="map"></div>
+
+  <div id="info">
+    <p>La Macarena, un barrio con múltiples accesos, se conecta a través de la Avenida Circunvalar, las carreras quinta y séptima, y la calle 26B. 
+    Se puede llegar mediante transporte público desde diversos puntos de la ciudad. 
+    Para ingresar al barrio, se recomienda usar la carrera 7 hacia el norte, la calle 27 al oriente, o la carrera 5 al sur.</p>
+  </div>
 
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
