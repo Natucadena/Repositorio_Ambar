@@ -8,16 +8,35 @@
 </head>
 <body>
   <header class="header-left">
-    <div class="logo-nombre">
+    <!-- Línea con el logo y nombre -->
+    <div class="logo-nombre" style="margin-bottom:24px;">
       <a href="index.html">
         <img src="logo.png" alt="Logo de la empresa" class="logo">
       </a>
       <span class="empresa-nombre">Ámbar</span>
+      <!-- Menú -->
+      <nav>
+        <ul class="menu-desplegable">
+          <li><a href="index.html#equipamientos">Equipamientos</a></li>
+          <li><a href="acerca.html">Acerca de</a></li>
+          <li>
+            <button onclick="window.location.href='index.html'" style="background:none;border:none;color:#333;font-size:inherit;cursor:pointer;padding:12px 28px;line-height:1.2;">
+              Volver
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <!-- Ajuste del título -->
+      <div style="text-align:center; margin:12px 0 20px 0;">
+        <span style="font-weight:bold; font-size:2.4em; color:#000000; line-height:3.2;">
+          Problemáticas
+        </span>
+      </div>
     </div>
   </header>
 
   <!-- Menú desplegable -->
-  <nav style="text-align:center; margin-top:32px;">
+  <nav style="text-align:center; margin-top:10px;">
     <button class="dropdown-btn" onclick="mostrarSeccion('ambiental')">Problemática ambiental</button>
     <button class="dropdown-btn" onclick="mostrarSeccion('otras')">Otras problemáticas del barrio</button>
   </nav>
