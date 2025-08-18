@@ -16,7 +16,7 @@ body {
   width: 100%;
   padding: 20px 30px;
   font-family: Arial, sans-serif;
-  background-color: white;
+  background-color: lab(86.09% 6.82 15.74);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
@@ -48,13 +48,13 @@ body {
 
 #title-container h1 {
   margin: 0;
-  font-size: 3em;
+  font-size: 2.5em;
   color: #333;
 }
 
 #title-container p {
   margin: 5px 0 0;
-  font-size: 1.5em;
+  font-size: 3em;
   color: #555;
 }
 
@@ -86,4 +86,17 @@ body {
 
 #info p {
   margin: 0;
+}
+.leaflet-popup button {
+  font-size: 12px !important;
+  padding: 5px 8px !important;
+  background: #5d4037 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+}
+
+.leaflet-popup button:hover {
+  background: #4e342e !important;
 }
