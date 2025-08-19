@@ -9,7 +9,7 @@
     /* === FUENTE Y ESTILO GENERAL === */
     body {
       font-family: "Times New Roman", Times, serif;
-      background-color: #f4f4f4;
+      background-color: rgb(244, 244, 244);
       color: #333;
       line-height: 1.7;
       margin: 0;
@@ -18,12 +18,13 @@
 
     /* === ENCABEZADO === */
     #header {
-      position: relative;
-      width: 100%;
-      padding: 20px 30px;
-      background-color: #FFEFD4;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      z-index: 10;
+    position: relative;
+    width: 100%;
+    padding: 20px 30px;
+    font-family: "Times New Roman", Times, serif;
+    background-color: lab(95.34% 0.92 14.38);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
     }
 
     #header-wrapper {
@@ -32,7 +33,7 @@
     }
 
     #logo {
-      height: 55px;
+      height: 120px;
       border-radius: 8px;
       margin-right: 15px;
       flex-shrink: 0;
@@ -50,21 +51,21 @@
 
     #title-container h1 {
       margin: 0;
-      font-size: 2.6em;
+      font-size: 3em;
       color: #333;
     }
 
     #title-container p {
       margin: 5px 0 0;
-      font-size: 1.2em;
+      font-size: 2em;
       color: #555;
     }
 
     /* === CONTENIDO PRINCIPAL === */
     #content {
-      width: 90%;
+      width: 80%;
       max-width: 1200px;
-      margin: 30px auto;
+      margin: 40px auto;
       padding: 20px;
       background-color: white;
       border-radius: 12px;
@@ -79,8 +80,8 @@
     }
 
     .intro {
-      text-align: justify;
-      margin-bottom: 35px;
+      text-align: center;
+      margin-bottom: 40px;
       color: #555;
       font-size: 16px;
       font-style: italic;
@@ -166,10 +167,10 @@
     #info {
       width: 80%;
       margin: 30px auto;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.7;
       color: #444;
-      text-align: justify;
+      text-align: center;
       padding: 18px;
       background-color: #f0f0f0;
       border-left: 5px solid #5d4037;
@@ -205,7 +206,6 @@
       <img src="logo.png" alt="Logo" id="logo">
       <div id="title-container">
         <h1>Ámbar</h1>
-        <p>Equipamientos</p>
       </div>
     </div>
   </div>
@@ -215,7 +215,7 @@
     <h2>Lugares destacados en La Macarena</h2>
     <p class="intro">
       El barrio La Macarena, ubicado en el corazón de Bogotá, combina historia, cultura, gastronomía y educación en un entorno vibrante y accesible. 
-      A continuación, se presentan lugares emblemáticos del barrio, con información detallada sobre su misión, ubicación y aporte al tejido social.
+      A continuación, se presentan lugares emblemáticos del barrio, con información detallada sobre su misión, ubicación y aporte al tejido social Bogotano.
     </p>
 
     <ul class="lugares-list">
@@ -334,7 +334,7 @@
 
   <!-- MAPA -->
   <section id="map-section">
-    <h2>Ubicación de los equipamientos</h2>
+    <h2>Ubicación de los sitios de interés</h2>
     <div id="map"></div>
   </section>
 

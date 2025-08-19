@@ -16,7 +16,7 @@ body {
   width: 100%;
   padding: 20px 30px;
   font-family: "Times New Roman", Times, serif;
-  background-color: lab(95.34% 0.92 14.38);
+  background-color: oklch(96.026% 0.03765 81.494);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
@@ -54,7 +54,7 @@ body {
 
 #title-container p {
   margin: 5px 0 0;
-  font-size: 2.5em;
+  font-size: 2em;
   color: #555;
 }
 
