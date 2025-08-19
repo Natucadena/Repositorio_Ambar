@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Times New Roman", Times, serif;
   background-color: #f4f4f4;
   color: #333;
 }
@@ -15,8 +15,8 @@ body {
   position: relative;
   width: 100%;
   padding: 20px 30px;
-  font-family: Arial, sans-serif;
-  background-color: lab(93.48% 1.5 4.34);
+  font-family: "Times New Roman", Times, serif;
+  background-color: lab(95.34% 0.92 14.38);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
@@ -29,7 +29,7 @@ body {
 
 /* Logo */
 #logo {
-  height: 100px;
+  height: 120px;
   border-radius: 8px;
   margin-right: 15px;
   flex-shrink: 0;
@@ -48,13 +48,13 @@ body {
 
 #title-container h1 {
   margin: 0;
-  font-size: 2.5em;
+  font-size: 3em;
   color: #333;
 }
 
 #title-container p {
   margin: 5px 0 0;
-  font-size: 3em;
+  font-size: 2.5em;
   color: #555;
 }
 
@@ -72,9 +72,9 @@ body {
 #info {
   width: 80%;
   margin: 20px auto;
-  font-family: 'Arial', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  line-height: 2;
   color: #444;
   text-align: center;
   padding: 15px;

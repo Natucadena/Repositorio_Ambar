@@ -5,29 +5,31 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Times New Roman", Times, serif;
   background-color: #f4f4f4;
   color: #333;
+  line-height: 1.7;
 }
 
-/* Encabezado */
+/* Encabezado con color: #FFEFD4 */
 #header {
   position: relative;
   width: 100%;
   padding: 20px 30px;
-  font-family: Arial, sans-serif;
-  background-color: white;
+  background-color: lab(95.34% 0.92 14.38); /* ← Color aplicado aquí */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 10;
+  border-bottom: 1px solid #ddd;
 }
 
 #header-wrapper {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 #logo {
-  height: 50px;
+  height: 120px;
   border-radius: 8px;
   margin-right: 15px;
   flex-shrink: 0;
@@ -45,42 +47,131 @@ body {
 
 #title-container h1 {
   margin: 0;
-  font-size: 2.5em;
-  color: #333;
+  font-size: 3em;
+  color: #333; /
 }
 
 #title-container p {
   margin: 5px 0 0;
-  font-size: 1.1em;
+  font-size: 2.5em;
   color: #555;
 }
 
-/* Mapa */
-#map {
+/* Contenido principal */
+#content {
   width: 90%;
-  height: 70vh;
-  border: 2px solid #5d4037;
-  border-radius: 10px;
-  margin: 20px auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Información */
+#content h2 {
+  text-align: center;
+  color: #5d4037;
+  margin-bottom: 25px;
+  font-size: 1.9em;
+}
+
+#content .intro {
+  text-align: justify;
+  margin-bottom: 35px;
+  color: #555;
+  font-size: 16px;
+  font-style: italic;
+}
+
+/* Diseño en dos columnas */
+.lugares-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+/* Estilo de cada item */
+.lugar-item {
+  display: flex;
+  background-color: #fafafa;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  border-left: 6px solid #8B4513;
+}
+
+.lugar-img {
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
+}
+
+.lugar-info {
+  padding: 18px;
+  flex: 1;
+}
+
+.lugar-info h3 {
+  color: #5d4037;
+  margin-bottom: 10px;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.lugar-info p {
+  margin: 6px 0;
+  color: #444;
+  font-size: 15px;
+}
+
+.lugar-info strong {
+  color: #222;
+}
+
+/* Enlaces */
+.lugar-link {
+  color: #5d4037;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.lugar-link:hover {
+  text-decoration: underline;
+  color: #8B4513;
+}
+
+/* Información final */
 #info {
   width: 80%;
   margin: 20px auto;
-  font-family: 'Arial', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 18px;
+  line-height: 2;
   color: #444;
-  text-align: justify;
+  text-align: center;
   padding: 15px;
   background-color: #f9f9f9;
-  border-left: 4px solid #8B4513;
+  border-left: 5px solid #8B4513;
   border-radius: 0 8px 8px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 #info p {
   margin: 0;
+}
+
+/* Responsive: una columna en móviles */
+@media (max-width: 900px) {
+  .lugares-list {
+    grid-template-columns: 1fr;
+  }
+  .lugar-item {
+    flex-direction: column;
+  }
+  .lugar-img {
+    width: 100%;
+    height: 200px;
+  }
+  #content {
+    width: 95%;
+  }
 }
