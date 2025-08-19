@@ -42,31 +42,23 @@ document.addEventListener('DOMContentLoaded', function() {
             opacity: 1,
             fillOpacity: 0.9
           });
-        }
-      }).addTo(map);
-    })
-    .catch(error => console.error('Error al cargar el GeoJSON de los puntos SITP:', error));
-
-  // Cargar y mostrar la ruta del SITP desde el archivo GeoJSON
-  fetch('Ruta_Sitp_Macarena.geojson')
-    .then(response => response.json())
-    .then(data => {
-      L.geoJSON(data, {
-        style: {
-          color: '#1976d2',
-          weight: 4,
-          opacity: 0.4 // Más transparente para ver el barrio debajo
         },
         onEachFeature: function (feature, layer) {
-          let popupContent = '';
-          for (const key in feature.properties) {
-            if (feature.properties.hasOwnProperty(key)) {
-              popupContent += `<strong>${key}:</strong> ${feature.properties[key]}<br>`;
-            }
-          }
-          layer.bindPopup(popupContent || 'Ruta SITP');
+          const props = feature.properties;
+          let popupContent = `
+            <strong>nombre_par:</strong> ${props.nombre_par || ''}<br>
+            <strong>via_par:</strong> ${props.via_par || ''}<br>
+            <strong>direcc_par:</strong> ${props.direcc_par || ''}<br>
+            <strong>locali_par:</strong> ${props.locali_par || ''}<br>
+            <strong>consola_pa:</strong> ${props.consola_pa || ''}<br>
+            <strong>panel_par:</strong> ${props.panel_par || ''}<br>
+            <strong>audio_par:</strong> ${props.audio_par || ''}<br>
+            <strong>longitud:</strong> ${props.longitud || ''}<br>
+            <strong>latitud:</strong> ${props.latitud || ''}<br>
+          `;
+          layer.bindPopup(popupContent);
         }
       }).addTo(map);
     })
-    .catch(error => console.error('Error al cargar el GeoJSON de la ruta SITP:', error));
+    .catch(error => console.error('Error al cargar el GeoJSON de parques:', error));
 });
