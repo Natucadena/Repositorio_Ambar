@@ -48,7 +48,9 @@ body {
   margin: 0 auto 30px auto;
   list-style: none;
   width: fit-content;
-  gap: 18px;
+  gap: 24px; /* Más separación entre opciones */
+  font-size: 1.18em; /* Agranda el menú */
+  font-weight: bold;  /* Letras en negrilla */
 }
 
 .menu-desplegable li {
@@ -61,9 +63,10 @@ body {
   padding: 12px 28px;
   color: #333;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: bold; /* Negrilla en enlaces y botón */
   transition: background 0.2s;
   border-radius: 8px;
+  font-size: 1.08em; /* Opcional: agranda aún más las letras */
 }
 
 .menu-desplegable a:hover {
@@ -76,11 +79,13 @@ body {
   left: 0;
   top: 100%;
   background: #fff;
-  min-width: 160px;
+  min-width: 200px; /* Agranda el menú desplegable */
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   z-index: 10;
   border-radius: 6px;
   padding: 0;
+  font-size: 1.08em; /* Agranda las opciones del desplegable */
+  font-weight: bold; /* Letras en negrilla */
 }
 
 .menu-desplegable .dropdown-content li {
