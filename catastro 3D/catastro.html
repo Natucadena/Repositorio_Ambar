@@ -71,9 +71,9 @@
       const hasAltura = props.altura && !isNaN(+props.altura.getValue?.());
       const hasPisos  = props.pisos  && !isNaN(+props.pisos.getValue?.());
       // Multiplica la altura por 1.5 para hacer la extrusión más notoria
-      const altura = hasAltura ? +props.altura.getValue() * 1.5
-                : hasPisos  ? +props.pisos.getValue() * 3 * 1.5
-                            : 6 * 1.5;
+      const altura = hasAltura ? +props.altura.getValue() * 2.5
+                : hasPisos  ? +props.pisos.getValue() * 3 * 2.5
+                            : 6 * 2.5;
 
       pol.material = Cesium.Color.fromCssColorString("#2ecc40").withAlpha(0.95);
       pol.outline = true;
@@ -133,7 +133,7 @@
       }
       // Usar el formato flyTo solicitado
       viewer.camera.flyTo({
-        destination: Cesium.Cartesian3.fromDegrees(lon, lat, 400), // Puedes ajustar la altura para el zoom deseado
+        destination: Cesium.Cartesian3.fromDegrees(lon, lat, 60), // Altura baja: 60 metros
         orientation: {
           heading: Cesium.Math.toRadians(0.0),
           pitch: Cesium.Math.toRadians(-45.0),
