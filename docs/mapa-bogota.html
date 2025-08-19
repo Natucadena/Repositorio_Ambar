@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Barrio La Macarena - Bogotá</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Times New Roman", Times, serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    #header {
+      text-align: center;
+      padding: 20px;
+      background-color: #5d4037;
+      color: white;
+    }
+
+    #header h1 {
+      margin: 0;
+      font-size: 2.2em;
+    }
+
+    #header p {
+      margin: 5px 0 0;
+      font-size: 1.1em;
+      opacity: 0.9;
+    }
+
+    #map {
+      width: 90%;
+      height: 80vh;
+      border: 2px solid #5d4037;
+      border-radius: 10px;
+      margin: 20px auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-barrio {
+      max-width: 300px;
+      font-size: 15px;
+    }
+
+    .info-barrio h3 {
+      margin-top: 0;
+      color: #5d4037;
+    }
+
+    .info-barrio p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <div id="header">
+    <h1>Barrio La Macarena</h1>
+    <p>Ubicación dentro de Bogotá</p>
+  </div>
+
+  <!-- Mapa -->
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Script del mapa -->
+  <script>
+    // Inicializar el mapa centrado en Bogotá
+    const map = L.map('map').setView([4.6097, -74.0817], 12); // Zoom general de la ciudad
+
+    // Capa base: OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Cargar el GeoJSON del barrio
+    fetch('barrio_la_macarena.geojson')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Error al cargar el archivo: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Verificar que el GeoJSON sea válido
+        if (!data.features || data.features.length === 0) {
+          throw new Error('El archivo GeoJSON no tiene datos válidos.');
+        }
+
+        const barrio = data.features[0]; // Asumimos que es un solo polígono
+
+        // Propiedades del barrio
+        const props = barrio.properties;
+        const nombre = props.nombre || 'La Macarena';
+        const codigo = props.codigo_bar || '008105';
+        const upz = props.codigo_upz || '91';
+        const localidad = props.codigo_loc ? `Localidad ${props.codigo_loc}` : 'Santa Fe';
+        const area = props.shape_area ? (props.shape_area).toFixed(2) + ' m²' : 'No disponible';
+        const longitud = props.shape_len ? (props.shape_len / 1000).toFixed(2) + ' km' : 'No disponible';
+
+        // Contenido del popup
+        const popupContent = `
+          <div class="info-barrio">
+            <h3>${nombre}</h3>
+            <p><strong>Código:</strong> ${codigo}</p>
+            <p><strong>UPZ:</strong> ${upz}</p>
+            <p><strong>Localidad:</strong> ${localidad}</p>
+            <p><strong>Área:</strong> ${area}</p>
+            <p><strong>Perímetro:</strong> ${longitud}</p>
+            <p><em>Barrio histórico en el centro de Bogotá, con alta densidad cultural y patrimonial.</em></p>
+          </div>
+        `;
+
+        // Estilo del polígono
+        const barrioLayer = L.geoJSON(barrio, {
+          style: {
+            color: '#8B4513',
+            weight: 3,
+            opacity: 0.8,
+            fillColor: '#FFEFD4',
+            fillOpacity: 0.5
+          }
+        }).addTo(map);
+
+        // Añadir popup
+        barrioLayer.bindPopup(popupContent);
+
+        // Opcional: abrir popup al hacer clic
+        barrioLayer.on('click', () => {
+          barrioLayer.openPopup();
+        });
+
+        // Ajustar zoom para mostrar toda la ciudad con el barrio visible
+        const bounds = barrioLayer.getBounds();
+        map.fitBounds(bounds, { padding: [50, 50], maxZoom: 15 });
+
+      })
+      .catch(error => {
+        console.error('Error al cargar el barrio:', error);
+        alert('No se pudo cargar el barrio "La Macarena".\nVerifica que el archivo "barrio_la_macarena.geojson" esté en la carpeta correcta.');
+      });
+  </script>
+
+</body>
+</html>

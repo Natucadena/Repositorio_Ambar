@@ -4,16 +4,202 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Equipamientos - Ambar</title>
-  <link rel="stylesheet" href="equipamientos.css" />
+
+  <style>
+    /* === FUENTE Y ESTILO GENERAL === */
+    body {
+      font-family: "Times New Roman", Times, serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* === ENCABEZADO === */
+    #header {
+      position: relative;
+      width: 100%;
+      padding: 20px 30px;
+      background-color: #FFEFD4;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    #header-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    #logo {
+      height: 55px;
+      border-radius: 8px;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+
+    #title-container {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: -1;
+      width: auto;
+    }
+
+    #title-container h1 {
+      margin: 0;
+      font-size: 2.6em;
+      color: #333;
+    }
+
+    #title-container p {
+      margin: 5px 0 0;
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    /* === CONTENIDO PRINCIPAL === */
+    #content {
+      width: 90%;
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #content h2 {
+      text-align: center;
+      color: #5d4037;
+      margin-bottom: 25px;
+      font-size: 1.9em;
+    }
+
+    .intro {
+      text-align: justify;
+      margin-bottom: 35px;
+      color: #555;
+      font-size: 16px;
+      font-style: italic;
+    }
+
+    .lugares-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .lugar-item {
+      display: flex;
+      background-color: #fafafa;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+      border-left: 6px solid #8B4513;
+    }
+
+    .lugar-img {
+      width: 220px;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .lugar-info {
+      padding: 18px;
+      flex: 1;
+    }
+
+    .lugar-info h3 {
+      color: #5d4037;
+      margin-bottom: 10px;
+      font-size: 1.35em;
+      font-weight: bold;
+    }
+
+    .lugar-info p {
+      margin: 6px 0;
+      color: #444;
+      font-size: 15px;
+    }
+
+    .lugar-link {
+      color: #5d4037;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .lugar-link:hover {
+      text-decoration: underline;
+      color: #8B4513;
+    }
+
+    /* === MAPA === */
+    #map-section {
+      width: 90%;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #map-section h2 {
+      text-align: center;
+      color: #5d4037;
+      margin-bottom: 15px;
+    }
+
+    #map {
+      width: 100%;
+      height: 500px !important;
+      border: 2px solid #5d4037;
+      border-radius: 10px;
+      background-color: #f0f0f0;
+    }
+
+    /* === INFO FINAL === */
+    #info {
+      width: 80%;
+      margin: 30px auto;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #444;
+      text-align: justify;
+      padding: 18px;
+      background-color: #f0f0f0;
+      border-left: 5px solid #5d4037;
+      border-radius: 0 10px 10px 0;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 900px) {
+      .lugares-list {
+        grid-template-columns: 1fr;
+      }
+      .lugar-item {
+        flex-direction: column;
+      }
+      .lugar-img {
+        width: 100%;
+        height: 200px;
+      }
+      #content, #map-section {
+        width: 95%;
+      }
+    }
+  </style>
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
-  <!-- leaflet-kml (para cargar el KML) -->
-  <script src="https://unpkg.com/leaflet-kml@0.0.3/dist/leaflet-kml.js"></script>
 </head>
 <body>
-  <!-- Encabezado -->
+
+  <!-- ENCABEZADO -->
   <div id="header">
     <div id="header-wrapper">
       <img src="logo.png" alt="Logo" id="logo">
@@ -24,7 +210,7 @@
     </div>
   </div>
 
-  <!-- Contenido principal -->
+  <!-- CONTENIDO PRINCIPAL -->
   <main id="content">
     <h2>Lugares destacados en La Macarena</h2>
     <p class="intro">
@@ -36,7 +222,7 @@
       <li class="lugar-item">
         <img src="img/IMG1.jpg" alt="Fundación Cultural Colombia Negra" class="lugar-img">
         <div class="lugar-info">
-          <h3><a href="https://www.colombianegra.org" target="_blank" class="lugar-link">Fundación Cultural Colombia Negra</a></h3>
+          <h3><a href="https://web.facebook.com/colnegra/?locale=es_LA&_rdc=1&_rdr#" target="_blank" class="lugar-link">Fundación Cultural Colombia Negra</a></h3>
           <p><strong>Tipo:</strong> Cultura / Afrocolombianidad</p>
           <p><strong>Dirección:</strong> Carrera 3 # 25-20, Bogotá</p>
           <p><strong>Horario:</strong> Lunes a viernes, 9:00 a.m. – 5:00 p.m.</p>
@@ -47,7 +233,7 @@
       <li class="lugar-item">
         <img src="img/IMG2.jpg" alt="Lachoco Latera Chocolatería" class="lugar-img">
         <div class="lugar-info">
-          <h3><a href="https://www.lachoco.com.co" target="_blank" class="lugar-link">Lachoco Latera Chocolatería</a></h3>
+          <h3><a href="https://www.lachoco-latera.com/es-CO" target="_blank" class="lugar-link">Lachoco Latera Chocolatería</a></h3>
           <p><strong>Tipo:</strong> Gastronomía / Chocolatería artesanal</p>
           <p><strong>Dirección:</strong> Calle 26 # 3-10, Bogotá</p>
           <p><strong>Horario:</strong> Todos los días, 8:00 a.m. – 8:00 p.m.</p>
@@ -69,7 +255,7 @@
       <li class="lugar-item">
         <img src="img/IMG4.jpg" alt="NC-arte" class="lugar-img">
         <div class="lugar-info">
-          <h3><a href="https://www.ncarte.co" target="_blank" class="lugar-link">NC-arte</a></h3>
+          <h3><a href="https://nc-arte.com/" target="_blank" class="lugar-link">NC-arte</a></h3>
           <p><strong>Tipo:</strong> Arte contemporáneo / Galería</p>
           <p><strong>Dirección:</strong> Calle 26 # 5-15, Bogotá</p>
           <p><strong>Horario:</strong> Martes a sábado, 10:00 a.m. – 6:00 p.m.</p>
@@ -80,7 +266,7 @@
       <li class="lugar-item">
         <img src="img/IMG5.jpg" alt="Matorral Librería" class="lugar-img">
         <div class="lugar-info">
-          <h3><a href="https://www.matorrallibreria.com" target="_blank" class="lugar-link">Matorral Librería</a></h3>
+          <h3><a href="https://www.matorral.com.co/" target="_blank" class="lugar-link">Matorral Librería</a></h3>
           <p><strong>Tipo:</strong> Librería independiente / Cultura</p>
           <p><strong>Dirección:</strong> Calle 26 # 6-20, Bogotá</p>
           <p><strong>Horario:</strong> Miércoles a domingo, 11:00 a.m. – 7:00 p.m.</p>
@@ -91,7 +277,7 @@
       <li class="lugar-item">
         <img src="img/IMG6.jpg" alt="Universidad Distrital - Facultad de Ciencias y Educación" class="lugar-img">
         <div class="lugar-info">
-          <h3><a href="https://udistrital.edu.co" target="_blank" class="lugar-link">Universidad Distrital - Facultad de Ciencias y Educación</a></h3>
+          <h3><a href="https://fciencias.udistrital.edu.co/" target="_blank" class="lugar-link">Universidad Distrital - Facultad de Ciencias y Educación</a></h3>
           <p><strong>Tipo:</strong> Educación superior / Universidad pública</p>
           <p><strong>Dirección:</strong> Carrera 8 # 40-62, Bogotá</p>
           <p><strong>Programas:</strong> Matemáticas, Biología, Química, Pedagogía</p>
@@ -102,7 +288,7 @@
       <li class="lugar-item">
         <img src="img/IMG7.jpg" alt="Ocio Gallery" class="lugar-img">
         <div class="lugar-info">
-          <h3><a href="https://www.ociogallery.com" target="_blank" class="lugar-link">Ocio Gallery</a></h3>
+          <h3><a href="https://www.instagram.com/ociogallery" target="_blank" class="lugar-link">Ocio Gallery</a></h3>
           <p><strong>Tipo:</strong> Espacio cultural / Arte experimental</p>
           <p><strong>Dirección:</strong> Calle 26 # 4-15, Bogotá</p>
           <p><strong>Horario:</strong> Jueves a domingo, 2:00 p.m. – 7:00 p.m.</p>
@@ -113,7 +299,7 @@
       <li class="lugar-item">
         <img src="img/IMG8.jpg" alt="Beograd-Belgrado Restaurante Serbio" class="lugar-img">
         <div class="lugar-info">
-          <h3><a href="https://www.beogradrestaurante.com" target="_blank" class="lugar-link">Beograd-Belgrado Restaurante Serbio</a></h3>
+          <h3><a href="https://www.tripadvisor.co/Restaurant_Review-g294074-d3648609-Reviews-Beograd-Bogota.html" target="_blank" class="lugar-link">Beograd-Belgrado Restaurante Serbio</a></h3>
           <p><strong>Tipo:</strong> Gastronomía internacional / Cocina balcánica</p>
           <p><strong>Dirección:</strong> Calle 26 # 8-20, Bogotá</p>
           <p><strong>Horario:</strong> Martes a domingo, 12:00 m. – 9:00 p.m.</p>
@@ -124,7 +310,7 @@
       <li class="lugar-item">
         <img src="img/IMG9.jpg" alt="Restaurante Temático La Juguetería - Macarena" class="lugar-img">
         <div class="lugar-info">
-          <h3><a href="https://www.lajugueteria.com.co" target="_blank" class="lugar-link">Restaurante Temático La Juguetería - Macarena</a></h3>
+          <h3><a href="https://www.restaurantelajugueteria.com.co/" target="_blank" class="lugar-link">Restaurante Temático La Juguetería - Macarena</a></h3>
           <p><strong>Tipo:</strong> Gastronomía temática / Familiar</p>
           <p><strong>Dirección:</strong> Calle 26 # 9-15, Bogotá</p>
           <p><strong>Horario:</strong> Todos los días, 12:00 m. – 10:00 p.m.</p>
@@ -146,13 +332,13 @@
     </ul>
   </main>
 
-  <!-- 🔹 Nueva sección: Mapa con los puntos del KML -->
+  <!-- MAPA -->
   <section id="map-section">
     <h2>Ubicación de los equipamientos</h2>
     <div id="map"></div>
   </section>
 
-  <!-- Información adicional -->
+  <!-- INFO FINAL -->
   <div id="info">
     <p>La Macarena es un barrio con identidad propia, donde conviven historia, cultura, educación y gastronomía. 
     Su ubicación céntrica y su diversidad de espacios lo convierten en un referente de vida urbana en Bogotá. 
@@ -160,62 +346,64 @@
   </div>
 
   <!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<!-- Script personalizado para el mapa -->
-<script>
-  // Inicializar el mapa
-  const map = L.map('map').setView([4.6125, -74.0665], 16);
-
-  // Capa base: OpenStreetMap
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-
-  // Cargar y mostrar el GeoJSON
-  fetch('equipamientos.geojson')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`Error HTTP: ${response.status} - ${response.statusText}`);
+  <!-- Script del mapa (con datos incrustados) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof L === 'undefined') {
+        console.error('Leaflet no se cargó');
+        alert('Error: Leaflet no se cargó. Verifica tu conexión.');
+        return;
       }
-      return response.json();
-    })
-    .then(data => {
-      // Estilo de los marcadores
-      L.geoJSON(data, {
-        pointToLayer: (feature, latlng) => {
-          return L.circleMarker(latlng, {
-            color: '#8B4513',      // Borde marrón tierra
-            radius: 8,
-            weight: 2,
-            fillColor: '#FFEFD4',  // Fondo crema (como el encabezado)
-            fillOpacity: 0.9
-          });
-        },
-        onEachFeature: (feature, layer) => {
-          // Popup con el nombre del lugar
-          const name = feature.properties.name || 'Sin nombre';
-          layer.bindPopup(`<strong>${name}</strong>`);
-          
-          // Opcional: abrir popup al pasar el mouse
-          layer.on('mouseover', () => {
-            layer.openPopup();
-          });
-          layer.on('mouseout', () => {
-            layer.closePopup();
-          });
-        }
-      }).addTo(map);
 
-      // Ajustar el zoom para incluir todos los puntos
-      const bounds = L.geoJSON(data).getBounds();
-      map.fitBounds(bounds, {
-        padding: [50, 50],
-        maxZoom: 17
-      });
-    })
-    .catch(error => {
-      console.error('Error al cargar el GeoJSON:', error);
-      alert('No se pudo cargar el mapa de equipamientos.\nVerifica que el archivo "equipamientos.geojson" esté en la carpeta correcta.');
+      const equipamientosData = {
+        "type": "FeatureCollection",
+        "features": [
+          { "type": "Feature", "properties": { "name": "Fundación Cultural Colombia Negra" }, "geometry": { "type": "Point", "coordinates": [-74.067205, 4.6125226] } },
+          { "type": "Feature", "properties": { "name": "Lachoco Latera Chocolatería" }, "geometry": { "type": "Point", "coordinates": [-74.0667158, 4.6120395] } },
+          { "type": "Feature", "properties": { "name": "Capilla Nuestra Señora del Perpetuo Socorro - La Macarena" }, "geometry": { "type": "Point", "coordinates": [-74.0659298, 4.6128448] } },
+          { "type": "Feature", "properties": { "name": "NC-arte" }, "geometry": { "type": "Point", "coordinates": [-74.0671752, 4.6126503] } },
+          { "type": "Feature", "properties": { "name": "Matorral Librería" }, "geometry": { "type": "Point", "coordinates": [-74.06704, 4.612988] } },
+          { "type": "Feature", "properties": { "name": "Universidad Distrital Francisco José de Caldas - Facultad de Ciencias y Educación" }, "geometry": { "type": "Point", "coordinates": [-74.0656047, 4.6136089] } },
+          { "type": "Feature", "properties": { "name": "Ocio Gallery" }, "geometry": { "type": "Point", "coordinates": [-74.0672235, 4.6122846] } },
+          { "type": "Feature", "properties": { "name": "Beograd-Belgrado Restaurante Serbio" }, "geometry": { "type": "Point", "coordinates": [-74.0669583, 4.6119884] } },
+          { "type": "Feature", "properties": { "name": "Restaurante Temático La Juguetería - Macarena" }, "geometry": { "type": "Point", "coordinates": [-74.0664918, 4.6137773] } },
+          { "type": "Feature", "properties": { "name": "Plaza de mercado La Perseverancia" }, "geometry": { "type": "Point", "coordinates": [-74.0662788, 4.616465] } }
+        ]
+      };
+
+      try {
+        const map = L.map('map').setView([4.6125, -74.0665], 16);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.geoJSON(equipamientosData, {
+          pointToLayer: (feature, latlng) => {
+            return L.circleMarker(latlng, {
+              color: '#8B4513',
+              radius: 8,
+              weight: 2,
+              fillColor: '#FFEFD4',
+              fillOpacity: 0.8
+            });
+          },
+          onEachFeature: (feature, layer) => {
+            const name = feature.properties.name || 'Sin nombre';
+            layer.bindPopup(`<strong>${name}</strong>`);
+          }
+        }).addTo(map);
+
+        const bounds = L.geoJSON(equipamientosData).getBounds();
+        map.fitBounds(bounds, { padding: [50, 50], maxZoom: 17 });
+
+      } catch (error) {
+        console.error('Error al crear el mapa:', error);
+        document.getElementById('map').innerHTML = '<p style="color:red; text-align:center; margin-top:20px;">❌ Error al cargar el mapa. Recarga la página.</p>';
+      }
     });
-</script>
+  </script>
+
+</body>
+</html>
