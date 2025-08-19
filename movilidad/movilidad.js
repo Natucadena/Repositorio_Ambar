@@ -27,6 +27,23 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     })
     .catch(error => console.error('Error al cargar el GeoJSON del barrio:', error));
+  fetch('Ruta_Sitp_Macarena.geojson')
+    .then(response => response.json())
+    .then(data => {
+      L.geoJSON(data, {
+        style: {
+          color: "#7bb9f8db", // Contorno negro
+          weight: 3,
+          fillOpacity: 0 // Sin fondo, solo contorno
+        }
+      }).addTo(map);
+
+      // Suponiendo que solo hay un barrio, tomamos las propiedades del primer feature
+      if (data.features && data.features.length > 0) {
+        barrioProps = data.features[0].properties;
+      }
+    })
+    .catch(error => console.error('Error al cargar el GeoJSON del barrio:', error));
 
   // Cargar y mostrar los puntos del sitp desde el archivo GeoJSON
   fetch('SITP_Macarena.geojson')
@@ -62,3 +79,4 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(error => console.error('Error al cargar el GeoJSON de parques:', error));
 });
+        
