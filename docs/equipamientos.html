@@ -40,13 +40,13 @@
     }
 
     #title-container {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
+      position: static;
+      left: auto;
+      top: auto;
+      transform: none;
       text-align: center;
-      z-index: -1;
-      width: auto;
+      z-index: 1;
+      width: 100%;
     }
 
     #title-container h1 {
@@ -203,11 +203,14 @@
   <!-- ENCABEZADO -->
   <div id="header">
     <div id="header-wrapper">
+      <a href="../docs/index.html">
       <img src="logo.png" alt="Logo" id="logo">
-      <div id="title-container">
-        <h1>Ámbar</h1>
-      </div>
+    </a>
+    <div id="title-container">
+      <h1>Ámbar</h1>
+      <p>Acerca de La Macarena</p>
     </div>
+  </div>
   </div>
 
   <!-- CONTENIDO PRINCIPAL -->
