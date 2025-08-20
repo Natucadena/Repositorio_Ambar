@@ -171,7 +171,7 @@
 
   // Inicializar el mapa
   document.addEventListener('DOMContentLoaded', function () {
-    // ✅ 1. Centrar en Bogotá con zoom de ciudad
+    // Centrar en Bogotá con zoom de ciudad
     const map = L.map('map').setView([4.6097, -74.0817], 12);
 
     // Capa base
@@ -179,7 +179,7 @@
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // ✅ 2. Extraer el barrio
+    // Extraer el barrio
     const barrio = barrioData.features[0];
     const props = barrio.properties;
 
@@ -196,7 +196,7 @@
       </div>
     `;
 
-    // ✅ 3. Crear el GeoJSON y vincular el popup
+    // Crear el GeoJSON y vincular el popup
     const barrioLayer = L.geoJSON(barrio, {
       style: {
         color: '#8B4513',
@@ -206,61 +206,14 @@
         fillOpacity: 0.5
       }
     })
-    .bindPopup(popupContent)  // ← Vincula el popup aquí
+    .bindPopup(popupContent)
     .addTo(map);
 
-    // ✅ 4. Abrir el popup automáticamente después de que el mapa esté listo
+    // Abrir el popup automáticamente después de que el mapa esté listo
     setTimeout(() => {
       barrioLayer.openPopup();
-    }, 1000); // Pequeño retraso para asegurar que el mapa y el layer estén listos
+    }, 1000);
   });
-</script>
-
-    // Inicializar el mapa
-    document.addEventListener('DOMContentLoaded', function () {
-      // ✅ 1. Centrar en Bogotá con zoom de ciudad (mostrar zona urbana completa)
-      const map = L.map('map').setView([4.6097, -74.0817], 12); // Zoom 12: muestra toda la ciudad
-
-      // Capa base
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(map);
-
-      // ✅ 2. Dibujar el barrio La Macarena
-      const barrio = barrioData.features[0];
-      const props = barrio.properties;
-
-      const popupContent = `
-        <div class="info-barrio">
-          <h3>${props.nombre}</h3>
-          <p><strong>Código:</strong> ${props.codigo_bar}</p>
-          <p><strong>UPZ:</strong> ${props.codigo_upz}</p>
-          <p><strong>Localidad:</strong> ${props.codigo_loc}</p>
-          <p><strong>Área:</strong> ${(props.shape_area).toFixed(2)} m²</p>
-          <p><strong>Perímetro:</strong> ${(props.shape_len / 1000).toFixed(2)} km</p>
-          <p><em>Barrio histórico en el centro de Bogotá, con alta densidad cultural y patrimonial.</em></p>
-        </div>
-      `;
-
-      const barrioLayer = L.geoJSON(barrio, {
-        style: {
-          color: '#8B4513',
-          weight: 3,
-          opacity: 0.8,
-          fillColor: '#FFEFD4',
-          fillOpacity: 0.5
-        }
-      }).addTo(map);
-
-      // ✅ 3. Mostrar el popup automáticamente (sin hacer clic)
-      setTimeout(() => {
-        barrioLayer.openPopup();
-      }, 1000); // Pequeño retraso para asegurar que el mapa esté cargado
-
-      // ✅ 4. Ajustar vista para que se vea Bogotá completa, con el barrio visible
-      // Pero sin acercarse demasiado (mantener contexto urbano)
-      // Opcional: si quieres resaltar el barrio después, puedes hacer un flyTo más tarde
-    });
   </script>
 
 </body>
